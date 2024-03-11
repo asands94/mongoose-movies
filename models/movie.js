@@ -31,6 +31,7 @@ const movieSchema = new Schema(
     mpaaRating: { type: String, enum: ['G', 'PG', 'PG-13', 'R'] },
     cast: [String],
     nowShowing: { type: Boolean, default: false },
+    reviews: [reviewSchema]
   },
   {
     timeStamps: true,
