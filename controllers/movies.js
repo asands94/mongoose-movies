@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function newMovie(req, res) {
-  res.render('movies/new', { errorMsg: '' })
+  res.render('movies/new', { errorMsg: '', title: 'Add Movie' })
 }
 
 async function create(req, res) {
@@ -29,10 +29,10 @@ async function create(req, res) {
 
 async function index(req, res) {
   const movies = await Movie.find({})
-  res.render('movies/index', { movies })
+  res.render('movies/index', { movies, title: 'All Movies' })
 }
 
 async function show(req, res) {
   const movie = await Movie.findById(req.params.id)
-  res.render('movies/show', {movie})
+  res.render('movies/show', {movie, title: 'Movie Details'})
 }
