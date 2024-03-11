@@ -4,6 +4,7 @@ module.exports = {
   new: newMovie,
   create,
   index,
+  show
 }
 
 function newMovie(req, res) {
@@ -29,4 +30,9 @@ async function create(req, res) {
 async function index(req, res) {
   const movies = await Movie.find({})
   res.render('movies/index', { movies })
+}
+
+async function show(req, res) {
+  const movie = await Movie.findById(req.params.id)
+  res.render('movies/show', {movie})
 }
