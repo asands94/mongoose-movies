@@ -1,16 +1,16 @@
-const Movie = require('../models/movie');
+const Movie = require('../models/movie')
 
 module.exports = {
-  create
-};
+  create,
+}
 
 async function create(req, res) {
-    const movie = await Movie.findById(req.params.id);
-    movie.reviews.push(req.body);
-    try {
-      await movie.save();
-    } catch (err) {
-      console.log(err);
-    }
-    res.redirect(`/movies/${movie._id}`);
+  const movie = await Movie.findById(req.params.id)
+  movie.reviews.push(req.body)
+  try {
+    await movie.save()
+  } catch (err) {
+    console.log(err)
   }
+  res.redirect(`/movies/${movie._id}`)
+}

@@ -4,7 +4,7 @@ module.exports = {
   new: newMovie,
   create,
   index,
-  show
+  show,
 }
 
 function newMovie(req, res) {
@@ -34,5 +34,5 @@ async function index(req, res) {
 
 async function show(req, res) {
   const movie = await Movie.findById(req.params.id)
-  res.render('movies/show', {movie, title: 'Movie Details'})
+  res.render('movies/show', { movie, title: 'Movie Details' })
 }
